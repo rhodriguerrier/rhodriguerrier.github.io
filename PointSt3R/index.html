@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="PointSt3R is a variant of MASt3R fine-tuned on dynamic, synthetic data in order to perform competitively on point tracking benchmarks.">
+  <meta property="og:title" content="PointSt3R: Point Tracking through 3D Grounded Correspondence"/>
+  <meta property="og:description" content="PointSt3R is a variant of MASt3R fine-tuned on dynamic, synthetic data in order to perform competitively on point tracking benchmarks."/>
+  <meta property="og:url" content="https://rhodriguerrier.github.io/PointSt3R/"/>
+  <meta property="og:image" content="static/images/pointst3r_main_figure.png"/> <!-- Replace with your image URL -->
+  
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> 
+
+  <title>PointSt3R: Point Tracking through 3D Grounded Correspondence</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">PointSt3R: Point Tracking through 3D Grounded Correspondence</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+                <span class="author-block">
+                  <a href="https://rhodriguerrier.github.io/" target="_blank">Rhodri Guerrier</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://adamharley.com/" target="_blank">Adam W. Harley</a><sup>2</sup>,</span>
+                    <span class="author-block">
+                      <a href="https://dimadamen.github.io/" target="_blank">Dima Damen</a><sup>1</sup>,</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"> University of Bristol<sup>1</sup>, Meta<sup>2</sup> </span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/REPLACE_LATER.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/rhodriguerrier/PointSt3R" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/REPLACE_LATER" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main figure -->
+<section class="section" style="margin-bottom: -2%;">
+  <div class="container">
+    <img src="static/images/pointst3r_main_figure.png">
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light" style="padding-bottom:1rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified" style="margin-bottom:0.5rem;">
+	  <p>
+	    Recent advances in foundational 3D reconstruction models, such as DUSt3R and MASt3R, have shown great potential in 2D and 3D correspondence in static scenes. In this paper, we propose to adapt them for the task point tracking through 3D grounded correspondence. We first demonstrate that these models are competitive point trackers when focusing on static points, present in current point tracking benchmarks ($+34.3\%$ on EgoPoints vs. CoTracker2). We propose to combine the reconstruction loss with training for dynamic correspondence along with a visibility head, and fine-tuning MASt3R for point tracking using a relatively small amount of synthetic data. Importantly, we only train and evaluate on pairs of frames where one contains the query point, effectively removing any temporal context. Using a mix of dynamic and static point correspondences, we achieve competitive or superior point tracking results on four datasets (e.g. competitive on TAP-Vid-DAVIS 73.8 δ<sub>avg</sub> / 85.8\% occlusion acc. for PointSt3R compared to 75.7 / 88.3\% for CoTracker2; and significantly outperform CoTracker3 on EgoPoints 61.3 vs 50.0 and RGB-S 87.0 vs 82.3). We also present results on 3D point tracking along with several ablations on training datasets and percentage of dynamic correspondences.
+	  </p>
+        </div>
+
+        <div class="content has-text-justified is-size-5 publication-authors" style="margin-bottom:0;">
+          <span class="author-block">
+            <a href="./index.html#sec1">Visualisation</a> |
+	    <a href="./index.html#sec2">Performance</a> |
+	    <a href="./index.html#sec3">Acknowledgements</a> |
+	    <a href="./index.html#sec4">BibTeX</a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Introduction Section -->
+<section class="section" style="margin-bottom: -2%;" id="sec1">
+  <div class="container">
+    <video id="pointst3r-demo-video" autoplay controls muted loop>
+      <source src="static/videos/demo.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- Performance Table Section -->
+<section class="section is-small" id = "sec2">
+  <div class="container is-four-fifths">
+    <h2 class="title is-3">Performance</h2>
+    <h5 class="subtitle has-text-centered" style="
+    width: 100%;
+    margin: auto;
+    text-align: left !important">
+	  Tracking accuracy δ<sub>avg</sub> for PointSt3R and MASt3R compared to popular point tracking methods.
+	  Performance is reported across four established benchmarks using the "first" query model.
+	  We also report on dynamic points only for three datasets.
+  </h5>
+    <div class="content">
+      <table class="table is-striped is-hoverable is-fullwidth">
+
+        <thead>
+          <tr>
+            <th></th>
+	    <th colspan="4" style="padding-left:20%">All Points</th>
+	    <th colspan="3" style="padding-left:20%">Dynamic Points</th>
+	  </tr>
+	  <tr>
+            <th>Model</th>
+	    <th>TAP-Vid-DAVIS</th>
+	    <th>RoboTAP</th>
+	    <th>RGB-S</th>
+	    <th>EgoPoints</th>
+	    <th>RoboTAP</th>
+	    <th>RGB-S</th>
+	    <th>EgoPoints</th>
+          </tr>
+	</thead>
+
+	<tbody>
+          <tr>
+            <td>PIPs++</td>
+	    <td>69.1</td>
+	    <td>63.0</td>
+	    <td>77.8</td>
+	    <td>36.9</td>
+	    <td>62.7</td>
+	    <td>51.3</td>
+	    <td>20.0</td>
+          </tr>
+	  <tr>
+            <td>CoTracker2</td>
+            <td>75.7</td>
+            <td>70.6</td>
+            <td>83.3</td>
+            <td>38.5</td>
+            <td>66.9</td>
+            <td>53.7</td>
+            <td>21.3</td>
+          </tr>
+	  <tr>
+            <td>CoTracker3</td>
+            <td>76.7</td>
+            <td>78.8</td>
+            <td>82.8</td>
+            <td>50.0</td>
+            <td>74.6</td>
+            <td>65.2</td>
+            <td>32.6</td>
+          </tr>
+	  <tr>
+            <td>MASt3R</td>
+            <td>38.5</td>
+            <td>71.6</td>
+            <td>73.2</td>
+            <td>53.5</td>
+            <td>42.5</td>
+            <td>39.4</td>
+            <td>12.3</td>
+          </tr>
+	  <tr>
+            <td>PointSt3R</td>
+            <td>73.8</td>
+            <td>78.6</td>
+            <td>87.0</td>
+            <td>61.3</td>
+            <td>69.4</td>
+            <td>61.6</td>
+            <td>31.4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- End Performance Table Section -->
+
+<!-- Image carousel -->
+<section class="hero is-small" id="sec3">
+  <div class="hero-body">
+    <div class="container">
+          <!-- Your image here -->
+          <h2 class="title is-3">Acknowledgments </h2>
+	  <p>
+	    This work is supported by EPSRC Doctoral Training Program, EPSRC UMPIRE EP/T004991/1 and EPSRC Programme Grant VisualAI EP/T028572/1. We acknowledge the use of the Isambard-AI National AI Research Resource (AIRR), operated by the University of Bristol and funded by the UK Government’s Department for Science, Innovation and Technology (DSIT) via UK Research and Innovation; and the Science and Technology Facilities Council [ST/AIRR/I-A-I/1023].
+	  </p>
+    </div>
+  </div>        
+</section>
+<!-- End image carousel -->
+
+<!--BibTex citation -->
+  <section class="section" id="sec4">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{guerrier2025pointst3r,
+	title={{PointSt3R}: Point Tracking through 3D Ground Correspondence},
+        author={Guerrier, Rhodri and Harley, Adam W. and Damen, Dima},
+        journal={arXiv},
+        year={2025}
+  }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
